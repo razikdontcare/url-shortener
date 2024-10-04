@@ -35,8 +35,10 @@ export default function UrlConfirmationDialog({
           </button>
         </div>
         <div className="bg-gray-100 p-4 rounded-md">
-          <p className="font-medium mb-2">Your shortened URL:</p>
-          <p className="break-all text-blue-600">{url}</p>
+          <p className="font-medium mb-2 text-sm">Your shortened URL:</p>
+          <a href={url!} target="_blank" className="break-all text-blue-600">
+            {url}
+          </a>
         </div>
         <div className="mt-4 flex justify-end space-x-2">
           <button

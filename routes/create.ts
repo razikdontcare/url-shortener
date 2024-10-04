@@ -9,7 +9,9 @@ const create = new Hono();
 
 const CORS = cors({
   origin: (origin) =>
-    origin.endsWith(".wannabe.id") ? origin : "https://wannabe.id",
+    origin.endsWith(process.env.WANNABE_ORIGIN!)
+      ? origin
+      : process.env.WANNABE_DEFAULT_ORIGIN,
   allowMethods: ["POST"],
 });
 
@@ -50,7 +52,7 @@ create.post("/", async (c) => {
     const data: CreateResponse = {
       id,
       target: body.target,
-      url: `https://wannabe.id/${id}`,
+      url: `${process.env.WANNABE_DEFAULT_ORIGIN}/${id}`,
       _createdAt: Date.now(),
       _updatedAt: Date.now(),
       message: exists

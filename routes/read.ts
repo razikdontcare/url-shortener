@@ -7,7 +7,9 @@ const read = new Hono();
 
 const CORS = cors({
   origin: (origin) =>
-    origin.endsWith(".wannabe.id") ? origin : "https://wannabe.id",
+    origin.endsWith(process.env.WANNABE_ORIGIN!)
+      ? origin
+      : process.env.WANNABE_DEFAULT_ORIGIN,
   allowMethods: ["GET"],
 });
 

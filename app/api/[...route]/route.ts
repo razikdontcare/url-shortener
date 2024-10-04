@@ -10,7 +10,7 @@ export const revalidate = false;
 const app = new Hono().basePath("/api");
 
 app.get("/hello", (c) => {
-  return c.json({ message: "Wannabe URL Shortener v1.0.0" });
+  return c.json({ message: "Wannabe URL Shortener v1.0.0", version: "1.0.0" });
 });
 
 app.route("/create", create);

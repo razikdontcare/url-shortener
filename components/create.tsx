@@ -1,1 +1,3 @@
-export default function Create() {}
+export default function Create() {
+  return <></>;
+}

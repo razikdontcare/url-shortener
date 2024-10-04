@@ -1,5 +1,13 @@
+import { Roboto_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
+
+const roboto_mono = Roboto_Mono({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
+
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Wannabe URL Shortener",
@@ -13,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        className={`${roboto_mono.className} ${outfit.className} antialiased transition-all scroll-smooth`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

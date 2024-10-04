@@ -41,6 +41,7 @@ FIREBASE_APP_ID=your_app_id
 FIREBASE_MEASUREMENT_ID=your_measurement_id
 WANNABE_ORIGIN=your_origin
 WANNABE_DEFAULT_ORIGIN=your_default_origin
+BASE_URL=your_base_url
 ```
 
 ## Usage

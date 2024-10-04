@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Dialog from "./dialog";
 
 import { createUrl } from "@/app/actions";
 
@@ -8,6 +9,8 @@ export default function Home() {
   const [target, setTarget] = useState("");
   const [randomId, setRandomId] = useState(false);
   const [customId, setCustomId] = useState("");
+  const [createdUrl, setCreatedUrl] = useState<string | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,10 +20,21 @@ export default function Home() {
         randomId,
         id: customId || undefined,
       });
-      console.log("URL created:", result);
+      setCreatedUrl(result.url);
+      setIsDialogOpen(true);
+      // console.log("URL created:", result);
     } catch (error) {
       console.error("Error creating URL:", error);
     }
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setCreatedUrl(null);
+    // Optionally reset the form here
+    setTarget("");
+    setRandomId(false);
+    setCustomId("");
   };
 
   useEffect(() => {
@@ -40,7 +54,7 @@ export default function Home() {
     );
 
   return (
-    <p>
+    <main>
       <div className="container mx-auto h-screen flex flex-col items-center justify-center gap-5">
         <div className="mx-auto flex flex-col items-center justify-center gap-2">
           <h1 className="text-xl font-bold">Wannabe URL Shortener</h1>
@@ -100,6 +114,13 @@ export default function Home() {
           </label>
         </form>
       </div>
-    </p>
+      {createdUrl && (
+        <Dialog
+          url={createdUrl}
+          isOpen={isDialogOpen}
+          onClose={handleCloseDialog}
+        />
+      )}
+    </main>
   );
 }

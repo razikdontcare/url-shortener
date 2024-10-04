@@ -9,7 +9,7 @@ export async function createUrl({
   randomId: boolean;
   id?: string;
 }) {
-  const response = await fetch("/api/create", {
+  const response = await fetch(process.env.BASE_URL + "/api/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

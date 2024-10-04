@@ -69,7 +69,7 @@ export default function Home() {
           onSubmit={handleCreate}
           className="container mx-auto flex flex-col items-center justify-center p-6 gap-5"
         >
-          <div className="container mx-auto flex items-center justify-center gap-2 max-w-xl">
+          <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-2 max-w-xl">
             <input
               type="url"
               value={target}
@@ -84,7 +84,7 @@ export default function Home() {
                 value={customId}
                 onChange={(e) => setCustomId(e.target.value)}
                 placeholder="Custom ID (optional)"
-                className="p-2 rounded"
+                className="p-2 rounded container md:w-1/2"
               />
             )}
           </div>

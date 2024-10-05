@@ -12,6 +12,7 @@ A simple URL shortener service built with Next.js, TypeScript, Firebase, and Hon
   - [API Endpoints](#api-endpoints)
   - [Development](#development)
     - [Project Structure](#project-structure)
+    - [Contributors](#contributors)
   - [License](#license)
 
 ## Installation
@@ -104,6 +105,10 @@ Retrieves the target URL for a given ID.
 - `routes/create.ts`: Handles the URL creation form.
 - `routes/read.ts`: Handles URL retrieval.
 - `lib/firebase.ts`: Firebase configuration.
+
+### Contributors
+
+- [Razik](https://github.com/razikdontcare)
 
 ## License
 

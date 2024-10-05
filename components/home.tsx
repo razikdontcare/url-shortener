@@ -61,7 +61,7 @@ export default function Home() {
     <main>
       <div className="container mx-auto h-screen flex flex-col items-center justify-center gap-5">
         <div className="mx-auto flex flex-col items-center justify-center gap-2">
-          <h1 className="text-xl font-bold">Wannabe URL Shortener</h1>
+          <h1 className="text-xl font-bold">Razik URL Shortener</h1>
           <p className="text-xs">Version: {message}</p>
         </div>
 

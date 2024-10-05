@@ -10,7 +10,7 @@ const roboto_mono = Roboto_Mono({
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Wannabe URL Shortener",
+  title: "Razik",
   description: "create short URLs",
 };
 

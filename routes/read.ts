@@ -19,6 +19,8 @@ read.get("/", async (c) => {
   try {
     const { id } = c.req.query();
 
+    if (!id) return c.json({ message: "URL ID is required." }, 400);
+
     const docRef = doc(db, "urls", id);
     const docSnap = await getDoc(docRef);
 

@@ -16,21 +16,28 @@ const CORS = cors({
 read.use("*", CORS);
 
 read.get("/", async (c) => {
-  const { id } = c.req.query();
+  try {
+    const { id } = c.req.query();
 
-  const docRef = doc(db, "urls", id);
-  const docSnap = await getDoc(docRef);
+    const docRef = doc(db, "urls", id);
+    const docSnap = await getDoc(docRef);
 
-  if (!docSnap.exists()) {
-    return c.json({ message: "URL not found." }, 404);
+    if (!docSnap.exists()) {
+      return c.json({ message: "URL not found." }, 404);
+    }
+
+    const data = docSnap.data();
+
+    delete data["message"];
+    delete data["url"];
+
+    return c.json(data);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return c.json({ message: error.message }, 500);
+    }
+    return c.json({ message: "An unknown error occurred." }, 500);
   }
-
-  const data = docSnap.data();
-
-  delete data["message"];
-  delete data["url"];
-
-  return c.json(data);
 });
 
 export default read;

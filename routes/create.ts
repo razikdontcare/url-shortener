@@ -52,7 +52,7 @@ create.post("/", async (c) => {
     const data: CreateResponse = {
       id,
       target: body.target,
-      url: `${process.env.WANNABE_DEFAULT_ORIGIN}/${id}`,
+      url: `${process.env.WANNABE_DEFAULT_ORIGIN}/go/${id}`,
       _createdAt: Date.now(),
       _updatedAt: Date.now(),
       message: exists
